@@ -10,4 +10,9 @@ for file in files:
 file_sorter = sortFilesByEvent.SortFiles(file_Object)
 
 sorted_files = file_sorter.sortBydataType()
-print(sorted_files)
+jpeg = sorted_files[0]
+raw = sorted_files[1]
+for file in jpeg:
+    print(file.fileName)
+for file in raw:
+    print(file.fileName)
