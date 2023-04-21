@@ -19,3 +19,7 @@ class SortFiles:
             else:
                 raw.append(singleFile)
         return jpeg, raw
+
+    def sortByTimeStamp(self):
+        sorted_timestamp = sorted(self.file, key=lambda x: x.timeStamp)
+        return sorted_timestamp
