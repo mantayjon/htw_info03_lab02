@@ -8,6 +8,7 @@ class TestSortFiles(unittest.TestCase):
     def setUp(self):
         self.file01 = File('file1.jpeg', 1)
         self.file02 = File('file2.jpg', 4)
+        
         self.file03 = File('file3.raw', 7)
         self.file04 = File('file4.cr2', 2)
         self.file05 = File('file5.arw', 9)
@@ -16,21 +17,21 @@ class TestSortFiles(unittest.TestCase):
 
     def test_sortByFileName(self):
         sorter = SortFiles(self.files)
-        jpeg, raw = sorter.sortByDataType()
+        result = sorter.sortByDataType()
 
         expJpeg = [self.file01, self.file02]
         expRaw = [self.file03, self.file04, self.file05]
 
-        self.assertEqual(len(jpeg), 2)
-        self.assertEqual(jpeg, expJpeg)
-        self.assertIn(self.file01, jpeg)
-        self.assertIn(self.file02, jpeg)
+        self.assertEqual(len(result[0]), 2)
+        self.assertEqual(result[0], expJpeg)
+        self.assertIn(self.file01, result[0])
+        self.assertIn(self.file02, result[0])
 
-        self.assertEqual(len(raw), 3)
-        self.assertEqual(raw, expRaw)
-        self.assertIn(self.file03, raw)
-        self.assertIn(self.file04, raw)
-        self.assertIn(self.file05, raw)
+        self.assertEqual(len(result[1]), 3)
+        self.assertEqual(result[1], expRaw)
+        self.assertIn(self.file03, result[1])
+        self.assertIn(self.file04, result[1])
+        self.assertIn(self.file05, result[1])
 
     def test_sortByTimeStamp(self):
         sorter = SortFiles(self.files)
