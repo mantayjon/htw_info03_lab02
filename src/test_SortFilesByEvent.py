@@ -2,6 +2,7 @@ import unittest
 from sortFilesByEvent import SortFiles
 from fileObject import File
 
+
 class TestSortFiles(unittest.TestCase):
 
     def setUp(self):
@@ -12,9 +13,16 @@ class TestSortFiles(unittest.TestCase):
         self.file05 = File('file5.arw', 9)
 
         self.files = [self.file01, self.file02, self.file03, self.file04, self.file05]
+
     def test_sortByTimeStamp(self):
         sorter = SortFiles(self.files)
         jpeg, raw = sorter.sortByDataType()
+
+        self.assertEqual(len(jpeg), 2)
+        self.assertEqual(len(raw), 3)
+        self.assertIn(self.file01, jpeg)
+        self.assertIn(self.file02, jpeg)
+        self.assertIn(self.file03, raw)
 
 
 if '__name__' == '__main__':
