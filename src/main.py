@@ -19,7 +19,7 @@ for file in files:
 
 file_sorter = sortFilesByEvent.SortFiles(file_Object)
 
-sorted_files = file_sorter.sortBydataType()
+sorted_files = file_sorter.sortByDataType()
 jpeg = sorted_files[0]
 raw = sorted_files[1]
 print("Sort By JPEG/RAW")

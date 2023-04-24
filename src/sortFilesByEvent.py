@@ -6,7 +6,7 @@ class SortFiles:
     def __init__(self, file):
         self.file = file
 
-    def sortBydataType(self):
+    def sortByDataType(self):
         jpeg = []
         raw = []
 
